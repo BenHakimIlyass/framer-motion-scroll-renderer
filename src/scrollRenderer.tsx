@@ -1,42 +1,29 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
 import * as React from "react";
-
+import { motion } from "framer-motion";
+import useScroll from "./useScroll";
 const setLimits = (limits: number[], condition: number) =>
-  condition > limits[0] && condition < limits[1];
+  condition >= limits[0] && condition < limits[1];
 
 type Props = {
   children: JSX.Element | JSX.Element[];
   max: number;
-  min: number;
+  min?: number;
+  native?: boolean;
 };
-const ScrollRenderer = ({ children, max, min }: Props) => {
-  const [scrollTop, setScrollTop] = React.useState(0);
-
-  React.useEffect(() => {
-    const handleScroll = (e: any) =>
-      setScrollTop(e.target.documentElement.scrollTop);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const ScrollRenderer = ({ children, max, min, native }: Props) => {
+  const scrollTop = useScroll();
   return (
-    <TextWrapper
+    <motion.div
+      style={native ? {} : { position: "fixed", width: "100%", top: "44%" }}
       transition={{ type: "tween" }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{
-        opacity: setLimits([min, max], scrollTop) ? 1 : 0,
-        y: scrollTop * 0.025
+        opacity: setLimits([!!min ? min : 0, max], scrollTop) ? 1 : 0,
+        y: (scrollTop - (!!min ? min : 0)) * 0.025
       }}
     >
       {children}
-    </TextWrapper>
+    </motion.div>
   );
 };
-const TextWrapper = styled(motion.div)`
-  position: fixed;
-  text-align: center;
-  left: calc(50% - 32px);
-  top: 40%;
-  transform: translate3d(-50%, -50%, 0);
-`;
-
 export default ScrollRenderer;
