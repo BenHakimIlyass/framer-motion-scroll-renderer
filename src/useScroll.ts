@@ -1,7 +1,12 @@
 import React from "react";
 
+type Props = {
+  max?: number;
+  min?: number;
+};
+type Dist = { scroll: number; isOnScreen: boolean };
 // A hook for tracking vertical scroll
-export default (max?: number, min?: number): (number | boolean)[] => {
+export default ({ min, max }: Props): Dist => {
   const [scroll, setScroll] = React.useState<number>(0);
 
   // check if the screen scroll match the min and max
@@ -19,5 +24,5 @@ export default (max?: number, min?: number): (number | boolean)[] => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return [scroll, isOnScreen()];
+  return { scroll: scroll, isOnScreen: isOnScreen() };
 };

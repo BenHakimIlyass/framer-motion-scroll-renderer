@@ -10,7 +10,7 @@ type Props = {
 };
 
 const ScrollRenderer = ({ children, max, min, native }: Props) => {
-  const [scroll, isOnScreen] = useScroll(max, min ? min : 0);
+  const { scroll, isOnScreen } = useScroll({ max: max, min: min ? min : 0 });
   return (
     <motion.div
       style={native ? {} : { position: "fixed", width: "100%", top: "44%" }}
