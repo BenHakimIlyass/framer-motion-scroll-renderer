@@ -10,30 +10,30 @@ import { makeProps, makeMin, makeMax } from "./helpers";
 import { Colorless, Colorful } from "./components";
 
 type Position = {
-  [key: number]: Metadata;
+  position: number;
   color: string;
 };
-interface Metadata {
-  key: number;
-  value: string;
-}
-const colors = {
-  300: "#fff",
-  600: "#000"
-};
-const changeColorAtPosition = (scroll: number, positions: Position) => {
-  Object.keys(positions).map((key) => ({
-    color: scroll > key ? positions[key] : ""
-  }));
-};
-export default function App() {
-  const { scroll, isOnScreen } = useScroll({
-    min: makeMin(3.2),
-    max: makeMax(7)
+
+const colors = [
+  { position: 0, color: "#f96754" },
+  { position: 300, color: "#fff" },
+  { position: 600, color: "#000" }
+];
+
+const changeColorAtPosition = (scroll: number, positions: Position[]) => {
+  const isTrue = positions.map((item: Position) => scroll > item.position);
+  const dist = isTrue.map((item, key) => {
+    if (item) return positions[key];
+    return positions[0];
   });
+  return dist[dist.length - 1].color;
+};
+
+export default function App() {
+  const { scroll } = useScroll({});
 
   return (
-    <Main animate={{ backgroundColor: isOnScreen ? "#fff" : "#f96754" }}>
+    <Main animate={{ backgroundColor: changeColorAtPosition(scroll, colors) }}>
       <ScrollRenderer {...makeProps(0)}>
         <Stack space={1}>
           <P direction="center">Hey there! my name is</P>
