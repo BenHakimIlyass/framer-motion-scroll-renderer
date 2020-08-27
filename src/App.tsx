@@ -6,21 +6,8 @@ import ScrollRenderer from "./scrollRenderer";
 import Stack from "./stack";
 import useScroll from "./useScroll";
 import "./styles.css";
+import { makeProps, makeMin, makeMax } from "./helpers";
 
-const makeDistance = (coefficient: number) => 500 * coefficient;
-const makeGap = (coefficient: number) => 700 * coefficient;
-
-const makeMin = (coefficient: number) =>
-  coefficient === 0 ? 0 : makeDistance(coefficient) + makeGap(coefficient);
-const makeMax = (coefficient: number) =>
-  coefficient === 0
-    ? makeDistance(coefficient + 1)
-    : makeMin(coefficient) + 500;
-
-const makeProps = (coefficient: number) => ({
-  min: makeMin(coefficient),
-  max: makeMax(coefficient)
-});
 export default function App() {
   const { isOnScreen } = useScroll({ min: makeMin(3), max: makeMax(5) });
 
