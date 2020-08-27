@@ -13,7 +13,7 @@ export const makeMax = (coefficient: number) =>
     : makeMin(coefficient) + 500;
 
 // wrap props
-export const makeProps = (coefficient: number) => ({
+export const makeProps = (coefficient: number, max?: number) => ({
   min: makeMin(coefficient),
-  max: makeMax(coefficient)
+  max: max ? makeMax(max) : makeMax(coefficient)
 });
