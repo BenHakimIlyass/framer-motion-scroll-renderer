@@ -7,7 +7,7 @@ import Stack from "./stack";
 import useScroll from "./useScroll";
 import "./styles.css";
 import { makeProps, makeMax, makeMin } from "./helpers";
-import { Colorless, Colorful, Skills } from "./sections";
+import { Button, Colorless, Colorful, Skills } from "./sections";
 
 export default function App() {
   const { scroll } = useScroll({});
@@ -44,7 +44,7 @@ export default function App() {
       </ScrollRenderer>
       <ScrollRenderer {...makeProps(2.4)}>
         <Stack space={1}>
-          <P direction="left">So let's see</P>
+          <P>So let's see</P>
           <H1>What i can do?</H1>
         </Stack>
       </ScrollRenderer>
@@ -54,11 +54,21 @@ export default function App() {
           <Skills style={{ textAlign: "center" }} scroll={scroll} />
         </Stack>
       </ScrollRenderer>
-      <ScrollRenderer {...makeProps(3.8)} native>
+      <ScrollRenderer {...makeProps(3.8, 4.8)} native>
         <Colorful yPosition={scroll} min={makeMin(3.8)} />
       </ScrollRenderer>
-      <ScrollRenderer {...makeProps(4.6)} native>
+      <ScrollRenderer {...makeProps(4.8, 5.8)} native>
         <Colorless yPosition={scroll} min={makeMin(4.6)} />
+      </ScrollRenderer>
+      <ScrollRenderer {...makeProps(6.2, 7)}>
+        <Stack space={3}>
+          <H1 style={{ color: "#1DA1F2" }}>Thanks for your attention</H1>
+          <P style={{ color: "#1DA1F2" }}>
+            If you want me to be part of your team, please feel free to contact
+            me.
+          </P>
+          <Button icon="twitter" />
+        </Stack>
       </ScrollRenderer>
     </Main>
   );
@@ -70,15 +80,15 @@ const alignement = css`
 const P = styled.p`
   margin: 0 auto;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   ${alignement}
-  max-width: 400px;
-  line-height: 1.2rem;
+  max-width: 600px;
+  line-height: 2rem;
 `;
 const H1 = styled.h1`
   margin: 0 auto;
   font-size: 3.4rem;
-  max-width: 400px;
+  max-width: 690px;
   color: #fff;
   line-height: 3.8rem;
   ${alignement}
@@ -88,7 +98,7 @@ const H3 = styled.h3`
   font-size: 2.2rem;
   max-width: 400px;
   color: #fff;
-  line-height: 3.8rem;
+  line-height: 2.4rem;
   ${alignement}
 `;
 const Main = styled(motion.div)`
