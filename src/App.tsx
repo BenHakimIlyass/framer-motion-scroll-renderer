@@ -19,7 +19,7 @@ export default function App() {
           scroll >= makeMax(2.5)
             ? "#fff"
             : scroll >= makeMax(0)
-            ? "#B2F1F1"
+            ? "#99EEEE"
             : scroll >= 0
             ? "#f96754"
             : "#000"

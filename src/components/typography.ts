@@ -15,6 +15,7 @@ export const H1 = styled.h1`
   margin: 0 auto;
   font-size: 3.4rem;
   max-width: 690px;
+  font-weight: 700;
   color: #fff;
   line-height: 3.8rem;
   ${alignement}
