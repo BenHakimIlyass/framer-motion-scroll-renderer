@@ -3,11 +3,11 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 import ScrollRenderer from "./scrollRenderer";
-import Stack from "./stack";
+import { Stack, Cluster, Button, P, H1, H3 } from "./components";
 import useScroll from "./useScroll";
 import "./styles.css";
 import { makeProps, makeMax, makeMin } from "./helpers";
-import { Button, Colorless, Colorful, Skills } from "./sections";
+import { Colorless, Colorful, Skills, Contact } from "./sections";
 
 export default function App() {
   const { scroll } = useScroll({});
@@ -61,46 +61,12 @@ export default function App() {
         <Colorless yPosition={scroll} min={makeMin(4.6)} />
       </ScrollRenderer>
       <ScrollRenderer {...makeProps(6.2, 7)}>
-        <Stack space={3}>
-          <H1 style={{ color: "#1DA1F2" }}>Thanks for your attention</H1>
-          <P style={{ color: "#1DA1F2" }}>
-            If you want me to be part of your team, please feel free to contact
-            me.
-          </P>
-          <Button icon="twitter" />
-        </Stack>
+        <Contact />
       </ScrollRenderer>
     </Main>
   );
 }
-const alignement = css`
-  text-align: ${({ direction }: { direction: "left" | "right" }) =>
-    direction ? direction : "center"};
-`;
-const P = styled.p`
-  margin: 0 auto;
-  color: #fff;
-  font-size: 1.6rem;
-  ${alignement}
-  max-width: 600px;
-  line-height: 2rem;
-`;
-const H1 = styled.h1`
-  margin: 0 auto;
-  font-size: 3.4rem;
-  max-width: 690px;
-  color: #fff;
-  line-height: 3.8rem;
-  ${alignement}
-`;
-const H3 = styled.h3`
-  margin: 0 auto;
-  font-size: 2.2rem;
-  max-width: 400px;
-  color: #fff;
-  line-height: 2.4rem;
-  ${alignement}
-`;
+
 const Main = styled(motion.div)`
   font-family: sans-serif;
   height: 16000px;
