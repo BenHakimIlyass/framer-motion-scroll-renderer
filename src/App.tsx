@@ -1,10 +1,10 @@
 import * as React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import ScrollRenderer from "./scrollRenderer";
-import { Stack, Cluster, Button, P, H1, H3 } from "./components";
-import useScroll from "./useScroll";
+import { Stack, P, H1, H3 } from "./components";
+import { useScroll } from "./hooks";
 import "./styles.css";
 import { makeProps, makeMax, makeMin } from "./helpers";
 import { Colorless, Colorful, Skills, Contact } from "./sections";
@@ -26,7 +26,7 @@ export default function App() {
       }}
     >
       <ScrollRenderer {...makeProps(0)}>
-        <Stack space={1}>
+        <Stack space={0.8}>
           <P direction="center">Hey there! my name is</P>
           <H1 direction="center">Ilyass Ben Hakim</H1>
         </Stack>
@@ -43,7 +43,7 @@ export default function App() {
         </P>
       </ScrollRenderer>
       <ScrollRenderer {...makeProps(2.4)}>
-        <Stack space={1}>
+        <Stack space={0.8}>
           <P>So let's see</P>
           <H1>What i can do?</H1>
         </Stack>
@@ -68,7 +68,7 @@ export default function App() {
 }
 
 const Main = styled(motion.div)`
-  font-family: sans-serif;
+  font-family: Muli;
   height: 16000px;
   background-color: #f96754;
 `;

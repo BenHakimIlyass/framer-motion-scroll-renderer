@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import useScroll from "./useScroll";
+import { useScroll } from "./hooks";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
