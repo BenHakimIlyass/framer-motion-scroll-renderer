@@ -94,7 +94,7 @@ export default function Colorless({ yPosition, min }: Props) {
   return (
     <motion.div animate={{ opacity: yPosition - min < 100 ? 0 : 1 }}>
       <Img {...imgProps} src={url} />
-      <P {...paragraphProps}>And also</P>
+      <P {...paragraphProps}>I like also</P>
       <H1 {...titleProps}>Colorless design</H1>
       <Background {...backgroundProps} />
     </motion.div>

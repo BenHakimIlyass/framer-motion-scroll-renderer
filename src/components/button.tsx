@@ -3,7 +3,17 @@ import styled, { css } from "styled-components";
 import { Cluster } from "./";
 type Props = {
   icon: "github" | "twitter" | "resume";
-  title: "string";
+  children: JSX.Element | JSX.Element[];
+};
+const Button = ({ icon, children }: Props) => {
+  return (
+    <Thumbnail icon={icon}>
+      <Cluster alignItems="center" justifyContent="center" space={1}>
+        <div>{icons()[icon]}</div>
+        <p>{children}</p>
+      </Cluster>
+    </Thumbnail>
+  );
 };
 const colors = {
   github: css`
@@ -38,16 +48,6 @@ const shadows = {
 };
 const handleShadows = ({ icon }: Partial<Props>) => shadows[icon];
 const handleColors = ({ icon }: { icon: Pick<Props, "icon"> }) => colors[icon];
-const Button = ({ icon, title }: Props) => {
-  return (
-    <Thumbnail icon={icon}>
-      <Cluster alignItems="center" justifyContent="center" space={1}>
-        <div>{icons()[icon]}</div>
-        <p>{title}</p>
-      </Cluster>
-    </Thumbnail>
-  );
-};
 
 const Thumbnail = styled.button`
   border-width: 2px;

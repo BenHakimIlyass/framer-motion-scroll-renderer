@@ -15,13 +15,19 @@ const Contact = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button icon="github" title="Github" />
+          <Button icon="github" title="Github">
+            GitHub
+          </Button>
         </a>
-        <a href="https://twitter.com/dinasso1" target="_blank">
-          <Button icon="resume" title="Resume" />
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <Button icon="resume">Resume</Button>
         </a>
-        <a href="https://twitter.com/dinasso1" target="_blank">
-          <Button icon="twitter" title="Twitter" />
+        <a
+          href="https://twitter.com/dinasso1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button icon="twitter">Twitter</Button>
         </a>
       </Cluster>
     </Stack>
