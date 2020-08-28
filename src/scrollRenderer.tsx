@@ -12,7 +12,7 @@ type Props = {
 const ScrollRenderer = ({ children, max, min, native }: Props) => {
   const { scroll, isOnScreen } = useScroll({ max: max, min: min ? min : 0 });
   return (
-    <AnimatePresence exitBeforeEnter initial={false}>
+    <AnimatePresence exitBeforeEnter>
       {isOnScreen && (
         <motion.div
           style={native ? {} : { position: "fixed", width: "100%", top: "44%" }}
