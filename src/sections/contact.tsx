@@ -16,7 +16,7 @@ const Contact = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button icon="github" title="Github">
+          <Button icon="github">
             <>GitHub</>
           </Button>
         </a>
@@ -40,6 +40,7 @@ const Contact = () => {
 };
 const Header1 = styled(H1)`
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     90deg,
