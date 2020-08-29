@@ -2,6 +2,7 @@ body {
   margin: 0;
   position: relative;
   overflow-x: hidden;
+  font-family: Muli;
 }
 
 h1,
@@ -11,21 +12,21 @@ h3 {
 }
 @font-face {
   font-family: Muli;
-  src: url(muli/Muli.ttf);
+  src: url(Muli/Muli.ttf);
   font-weight: 400;
 }
 @font-face {
   font-family: Muli;
-  src: url(muli/Muli-Bold.ttf);
+  src: url(Muli/Muli-Bold.ttf);
   font-weight: 700;
 }
 @font-face {
   font-family: Muli;
-  src: url(muli/Muli-Light.ttf);
+  src: url(Muli/Muli-Light.ttf);
   font-weight: 300;
 }
 @font-face {
   font-family: Muli;
-  src: url(muli/Muli-SemiBold.ttf);
+  src: url(Muli/Muli-SemiBold.ttf);
   font-weight: 500;
 }
